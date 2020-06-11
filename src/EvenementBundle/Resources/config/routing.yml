@@ -1,0 +1,76 @@
+evenement_homepage:
+    path:     /
+    defaults: { _controller: EvenementBundle:Default:index }
+
+evenement_Ajout:
+    path:     /admin/AjouterEvenement
+    defaults: { _controller: EvenementBundle:Evenement:AjoutEvenement }
+
+evenement_Affiche:
+    path:     /admin/AfficherEvenement
+    defaults: { _controller: EvenementBundle:Evenement:AfficheEvenement }
+
+evenement_Supprimer:
+    path:     /admin/SupprimerEvenement/{id}
+    defaults: { _controller: EvenementBundle:Evenement:deleteEvent }
+
+evenement_Modifier:
+    path:     /admin/ModifierEvenement/{id}
+    defaults: { _controller: EvenementBundle:Evenement:editEvenement }
+
+
+Front_Evenet:
+    path:     /Apprenant/AfficheEvent
+    defaults: { _controller: EvenementBundle:Evenement:AfficheEvenementFront }
+
+
+
+Comment:
+    path:     /Apprenant/AddComment/{id}
+    defaults: { _controller: EvenementBundle:Commentaire:AfficheAddComment }
+
+Comment_edit:
+    path:     /Apprenant/editComment/{idc}/{ide}
+    defaults: { _controller: EvenementBundle:Commentaire:editCommentaire }
+
+Comment_delete:
+    path:     /Apprenant/deliteComment/{idc}/{ide}
+    defaults: { _controller: EvenementBundle:Commentaire:deleteComment }
+
+Participer_ajoutEvenement:
+    path:     /Apprenant/AjoutReservation/{id}
+    defaults: { _controller: EvenementBundle:Reservation:AjoutReservation }
+
+
+Reservation_AfficheAdmin:
+    path:     /admin/AfficherReservation
+    defaults: { _controller: EvenementBundle:Reservation:AfficheReservationAdmin }
+
+
+Reservation_Delete:
+    path:     /admin/annuler/{id}
+    defaults: { _controller: EvenementBundle:Reservation:deleteReservationAdmin }
+
+AfficherReservationClient:
+    path:     /Apprenant/afficherReservation
+    defaults: { _controller: EvenementBundle:Reservation:ListeReservationClient }
+
+
+AnnulerReservation:
+    path:     /Apprenant/annulerReservation/{id}
+    defaults: { _controller: EvenementBundle:Reservation:deleteReservationClient }
+
+
+Calendre:
+    path:     /Apprenant/Calendre
+    defaults: { _controller: EvenementBundle:Reservation:Callendre }
+
+
+like:
+    path:     /Apprenant/Like/{id}
+    defaults: { _controller: EvenementBundle:Vote:Like }
+
+
+Deslike:
+    path:     /Apprenant/Deslike/{id}
+    defaults: { _controller: EvenementBundle:Vote:DesLike }

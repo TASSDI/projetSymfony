@@ -1,0 +1,160 @@
+classe_homepage:
+    path:     /
+    defaults: { _controller: ClasseBundle:Default:index }
+
+classe_Ajout:
+    path:     /admin/AjoutClasse
+    defaults: { _controller: ClasseBundle:Classe:AjouterClass }
+
+classe_Afficher:
+    path:     /admin/AfficherClasse
+    defaults: { _controller: ClasseBundle:Classe:AfficheClasse }
+
+classe_Supprimer:
+    path:     /admin/SupprimerClass/{id}
+    defaults: { _controller: ClasseBundle:Classe:deleteClasse }
+
+classe_Modifier:
+    path:     /admin/ModifierClass/{id}
+    defaults: { _controller: ClasseBundle:Classe:ModifierClasse }
+
+AllUser:
+    path:     /admin/AllUser
+    defaults: { _controller: ClasseBundle:Classe:AllUser }
+
+ClasseByNiveau:
+    path:     /admin/ClasseByNiveau/{id}
+    defaults: { _controller: ClasseBundle:Classe:AfficheClassebyNiveau }
+
+
+Affecter:
+    path:     /admin/Affecter/{idc}/{idu}
+    defaults: { _controller: ClasseBundle:Classe:AffecterClass }
+
+
+AffechierAffecter:
+    path:     /admin/AffichierAffecter/{id}
+    defaults: { _controller: ClasseBundle:Classe:AfficheClassebyApprenant }
+
+
+deleteAffecter:
+    path:     /admin/deleteAffecter/{id}
+    defaults: { _controller: ClasseBundle:Classe:deleteAffecter }
+
+AjouterNote:
+    path:     /admin/AjouterNote/{id}
+    defaults: { _controller: ClasseBundle:Note:AjouterNote }
+
+AfficheNote:
+    path:     /admin/AfficheNote/{id}
+    defaults: { _controller: ClasseBundle:Note:AfficheNote }
+
+ModifierNote:
+    path:     /admin/ModifierNote/{id}/{idc}
+    defaults: { _controller: ClasseBundle:Note:ModifierNote }
+
+
+deleteNote:
+    path:     /admin/suuprimerNote/{id}
+    defaults: { _controller: ClasseBundle:Note:deleteNote }
+
+Absence:
+    path:     /admin/Absence/{id}/{idu}
+    defaults: { _controller: ClasseBundle:Absence:AjouterAbsence }
+
+Front:
+    path:     /Parent/MyKids
+    defaults: { _controller: ClasseBundle:Absence:AfficheEnfantParnet }
+
+FrontNote:
+    path:     /Parent/MyKidsNote/{id}
+    defaults: { _controller: ClasseBundle:Absence:AfficheParnetNoteEnfant }
+
+FrontMyInfo:
+    path:     /Apprenant/MyInfo
+    defaults: { _controller: ClasseBundle:Absence:AfficheMonInfo }
+
+stat:
+    path:     /admin/Statistique
+    defaults: { _controller: ClasseBundle:Statistique:index }
+list_matieres:
+    path:     /listInscriptions
+    defaults: { _controller: ClasseBundle:Default:ListeMatiere }
+list_categorie:
+    path:     /listcategorie
+    defaults: { _controller: ClasseBundle:Default:listeCtegorie }
+list_livre:
+    path:     /listLivre/{id}
+    defaults: { _controller: ClasseBundle:Default:listeLivres }
+matieremonlivre:
+    path:     /matieremonlivre/{id}
+    defaults: { _controller: ClasseBundle:Default:listematiereLivres }
+check_subscribtion:
+    path:     /check/{iduser}/{idmatieremonlivre}
+    defaults: { _controller: ClasseBundle:Default:checkifsubscribed }
+List_activite:
+    path:     /ListActivite
+    defaults: { _controller: ClasseBundle:Default:ActivityList }
+List_Enfant:
+    path:     /ListEnfant/{id}
+    defaults: { _controller: ClasseBundle:Default:ListEnfants }
+List_reservations:
+    path:     /Listreservations/{id}
+    defaults: { _controller: ClasseBundle:Default:ListReservation }
+add_reservation:
+    path:     /addreserv
+    defaults: { _controller: ClasseBundle:Default:AddReservation }
+List_Events:
+    path:     /listEvent
+    defaults: { _controller: ClasseBundle:Default:ListEvents }
+comment_count:
+    path:     /countcomment/{id}
+    defaults: { _controller: ClasseBundle:Default:CommentsCount }
+comment_List:
+    path:     /Listcomment/{id}
+    defaults: { _controller: ClasseBundle:Default:CommentsList }
+AddCommentaire:
+    path:     /AddC
+    defaults: { _controller: ClasseBundle:Default:AddCommentaire }
+part_event:
+    path:     /partEvent
+    defaults: { _controller: ClasseBundle:Default:Participer }
+checkifpar:
+    path:     /checkifpart/{iduser}/{idevent}
+    defaults: { _controller: ClasseBundle:Default:checkIfPart }
+insc_matiere:
+    path:     /inscr/{iduser}/{idmatiere}
+    defaults: { _controller: ClasseBundle:Default:Inscri }
+annuler_reservation:
+    path:     /ann/{id}
+    defaults: { _controller: ClasseBundle:Default:AnnulerReservation }
+count:
+    path:     /count/{id}
+    defaults: { _controller: ClasseBundle:Default:countNotif }
+getNot:
+    path:     /Not/{id}
+    defaults: { _controller: ClasseBundle:Default:getnotif }
+checkNot:
+    path:     /checkNot/{id}
+    defaults: { _controller: ClasseBundle:Default:CheckNotif }
+listGarderie:
+    path:     /li
+    defaults: { _controller: ClasseBundle:Default:listeGarderie }
+rate:
+    path:     /ra
+    defaults: { _controller: ClasseBundle:Default:AjouterRate }
+listeActivité:
+    path:     /liAc
+    defaults: { _controller: ClasseBundle:Default:ListActivite }
+Add_u:
+    path:     /Add_u
+    defaults: { _controller: ClasseBundle:Default:AddEnfant }
+unpart_event:
+    path:     /unpartEvent
+    defaults: { _controller: ClasseBundle:Default:unParticiper }
+search_by_child_name:
+    path:     /search_by_name/{prenom}
+    defaults: { _controller: ClasseBundle:Default:searchByChiledName }
+like_ev:
+    path:     /like_ev/{id}
+    defaults: { _controller: ClasseBundle:Default:Like }

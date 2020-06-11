@@ -1,0 +1,54 @@
+garderie_homepage:
+    path:     /
+    defaults: { _controller: GarderieBundle:Default:index }
+
+Activite_ajout:
+    path:     /admin/ActviteAjout
+    defaults: { _controller: GarderieBundle:Activite:AjouterActivite }
+
+Activite_affiche:
+    path:     /admin/ActviteAffiche
+    defaults: { _controller: GarderieBundle:Activite:AfficheActivite }
+
+Activite_delete:
+    path:     /admin/Actvitedelete/{id}
+    defaults: { _controller: GarderieBundle:Activite:deleteClasse }
+
+Activite_modifie:
+    path:     /admin/Actvitemodifier/{id}
+    defaults: { _controller: GarderieBundle:Activite:ModifierActivite }
+
+Reservation_ajout:
+    path:     /parent/Reservez
+    defaults: { _controller: GarderieBundle:Reservation:AjouterReservation }
+
+Reservation_affichFront:
+    path:     /parent/MyReservation
+    defaults: { _controller: GarderieBundle:Reservation:AfficheMyReserv }
+
+AllReser:
+    path:     /admin/AllRes
+    defaults: { _controller: GarderieBundle:Reservation:AfficheAllReserv }
+
+AccepterRes:
+    path:     /admin/AccepterRes/{id}
+    defaults: { _controller: GarderieBundle:Reservation:AccepterReser }
+
+RefesuerRes:
+    path:     /admin/Refesuer/{id}
+    defaults: { _controller: GarderieBundle:Reservation:refuserReser }
+
+ArchiveRes:
+    path:     /admin/ArchiveGard
+    defaults: { _controller: GarderieBundle:Reservation:AfficheArchiveReserv }
+
+Reservation_delete:
+    path:     /parent/Reservezdele/{id}
+    defaults: { _controller: GarderieBundle:Reservation:deleteReservation }
+
+Reservation_modifier:
+    path:     /parent/ReservezUpdate/{id}
+    defaults: { _controller: GarderieBundle:Reservation:ModifierReservation }
+
+
+

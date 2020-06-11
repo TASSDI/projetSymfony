@@ -1,0 +1,81 @@
+{% extends "@User/Page_Parent.html.twig" %}
+{% block titre  %} Our Kids {% endblock %}
+{% block body %}
+
+<div class="col-lg-20 grid-margin stretch-card" style="text-align: center;">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="table-responsive pt-3">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>
+                            id
+                        </th>
+<th>
+                            Nom
+                        </th>
+
+                        <th>
+                            Prenom
+                        </th>
+                        <th>
+                            email
+                        </th>
+                        <th>
+                            date de Naissance
+                        </th>
+
+                        <th>
+                            niveau
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for s in class %}
+
+                                <tr>
+                                <td>
+                                    {{ s.id }}
+                                </td>
+
+                                <td>
+                                    {{ s.username }}
+
+                                </td>
+                                <td>
+                                    {{ s.prenom }}
+
+                                </td>
+                                <td>
+                                    {{ s.email }}
+
+                                </td>
+                                <td>
+                                    {{ s.DateNaissance|date }}
+
+                                </td>
+
+                                <td>
+                                    {{ s.niveau }}
+                                </td>
+
+                                <td>
+                                    <a href="{{ path('FrontNote',{'id':s.id}) }}">Info</a><br>
+                                </td>
+
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

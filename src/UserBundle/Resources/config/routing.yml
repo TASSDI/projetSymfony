@@ -1,0 +1,39 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+Page_Parent:
+    path:     /pageParent
+    defaults: { _controller: UserBundle:Default:Parent }
+
+Page_Employer:
+    path:     /admin
+    defaults: { _controller: UserBundle:Default:Emplyoer }
+
+Page_Apprenant:
+    path:     /pageApprenant
+    defaults: { _controller: UserBundle:Default:Apprenant }
+
+Page_Enseignant:
+    path:     /pageEnseignant
+    defaults: { _controller: UserBundle:Default:Enseignant }
+
+Page_Admin:
+    path:     /admine
+    defaults: { _controller: UserBundle:Default:Admin }
+
+
+Ajouter_Enfant:
+    path:     /parent/MonEnfant
+    defaults: { _controller: UserBundle:Default:AjouterApprenant }
+
+Ajouter_Employer:
+    path:     /admine/Employer
+    defaults: { _controller: UserBundle:Default:AjouterEmployer }
+
+Ajouter_Enseignant:
+    path:     /admine/Enseignant
+    defaults: { _controller: UserBundle:Default:AjouterEnseigant }
+
+Affichier_user:
+    path:     /admine/AllUser
+    defaults: { _controller: UserBundle:Default:AfficheUser }

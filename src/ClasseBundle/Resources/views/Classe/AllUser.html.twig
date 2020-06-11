@@ -1,0 +1,90 @@
+{% extends "@User/Page_Employer.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Eleve Non Affecter</h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                id
+                            </th>
+                            <th>
+                                Cin
+                            </th>
+                            <th>
+                                Nom
+                            </th>
+
+                            <th>
+                                Prenom
+                            </th>
+                            <th>
+                                email
+                            </th>
+                            <th>
+                                date de Naissance
+                            </th>
+
+                            <th>
+                                niveau
+                            </th>
+                            <th>
+                            Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for s in user %}
+                            {% for role in s.roles %}
+                                {% if role == 'ROLE_APPRENANT' and s.affecter == 0 %}
+                            <tr>
+                                <td>
+                                    {{ s.id }}
+                                </td>
+                                <td>
+                                    {{ s.cin }}
+                                </td>
+                                <td>
+                                    {{ s.username }}
+
+                                </td>
+                                <td>
+                                    {{ s.prenom }}
+
+                                </td>
+                                <td>
+                                    {{ s.email }}
+
+                                </td>
+                                <td>
+                                    {{ s.DateNaissance|date }}
+
+                                </td>
+
+                                    <td>
+                                        {{ s.niveau }}
+                                    </td>
+
+                                <td>
+                                    <a href="{{ path('classe_Supprimer',{'id':s.id}) }}">Supprimer</a><br>
+                                    <a href="{{ path('classe_Modifier',{'id':s.id}) }}">Modifier</a><br>
+                                    <a href="{{ path('ClasseByNiveau',{'id':s.id}) }}">Affecter Au classe</a>
+                                </td>
+
+{% endif %}
+                                {% endfor %}
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

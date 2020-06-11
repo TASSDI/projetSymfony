@@ -1,0 +1,57 @@
+{% extends "@User/Page_Employer.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Classe</h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+
+                        <tr>
+                    <th> id</th>
+
+                    <th> Titre</th>
+                    <th >Description</th>
+                    <th>Date Début</th>
+                    <th> Date Fin</th>
+                    <th> Lieu</th>
+                    <th> Nbre Places</th>
+                    <th>Nbre Participants</th>
+                    <th> Image</th>
+                    <th>Action</th>
+
+                        </tr>
+                </thead>
+                <tbody>
+                {% for e in event %}
+                <tr>
+
+
+                    <td>{{ e.id }} </td>
+                    <td>{{ e.titre }}</td>
+                    <td>{{ e.discription }}</td>
+                    <td>{{ e.dated|date("m/d/Y") }}</td>
+                    <td>{{ e.dateF |date("m/d/Y") }}</td>
+                    <td>{{ e.lieu}}</td>
+                    <td>{{ e.nbrplace}}</td>
+                    <td>{{ e.nbrparticipant}}</td>
+                    <td>  <img src="{{ asset('Upload/')}}{{ e.image }}" width="100"  /></td>
+                    <td>
+                    <a href="{{ path('evenement_Modifier',{'id':e.id}) }}"> Modifier</a><br>
+                    <a href="{{ path('evenement_Supprimer',{'id':e.id}) }}"> Supprimer </a>
+                    </td>
+
+                </tr>
+                </tbody>
+                        {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

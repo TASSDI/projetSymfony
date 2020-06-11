@@ -1,0 +1,81 @@
+{% extends "@User/Page_Employer.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Cour</h4>
+                <input class="form-control" id="myInput" type="text" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                id
+                            </th>
+                            <th>
+                                Cour
+                            </th>
+                            <th>
+                                Matier
+                            </th>
+                            <th>
+                                Categorie
+                            </th>
+                            <th>
+                              Discription
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody id="hi">
+                        {% for s in cour %}
+
+                            <tr>
+                                <td>
+                                    {{ s.id }}
+                                </td>
+                                    <td><a href="{{ asset('Upload/' ~ s.video) }}">{{ s.NomCour }}</a></td>
+                                <td>
+                                    {{ s.matiere.matiere }}
+                                </td>
+                                 <td>
+                                        {{ s.matiere.Categorie.nomCat }}
+                                   </td>
+                                         <td>
+                              {{ s.description}}
+                                 </td>
+
+                                <td>
+                                    <a href="{{ path('CourMonLivre_delete',{'id':s.id}) }}">Supprimer</a><br>
+                                    <a href="{{ path('CourMonLivre_Modifier',{'id':s.id}) }}">Modifier</a><br>
+
+                                </td>
+
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#hi tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

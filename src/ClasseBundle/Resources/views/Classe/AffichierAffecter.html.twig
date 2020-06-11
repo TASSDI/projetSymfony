@@ -1,0 +1,96 @@
+{% extends "@User/Page_Employer.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Eléve</h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                id
+                            </th>
+                            <th>
+                                Cin
+                            </th>
+                            <th>
+                                Nom
+                            </th>
+
+                            <th>
+                                Prenom
+                            </th>
+                            <th>
+                                email
+                            </th>
+                            <th>
+                                date de Naissance
+                            </th>
+
+                            <th>
+                                niveau
+                            </th>
+                            <th>
+                                Abscence
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for s in class %}
+                                    <tr>
+
+                                    <td>
+                                        {{ s.apprenant.id }}
+                                    </td>
+                                    <td>
+                                        {{ s.apprenant.cin }}
+                                    </td>
+                                    <td>
+                                        {{ s.apprenant.username }}
+
+                                    </td>
+                                    <td>
+                                        {{ s.apprenant.prenom }}
+
+                                    </td>
+                                    <td>
+                                        {{ s.apprenant.email }}
+
+                                    </td>
+                                    <td>
+                                        {{ s.apprenant.DateNaissance|date }}
+
+                                    </td>
+
+                                    <td>
+                                        {{ s.apprenant.niveau }}
+                                    </td>
+                                        <td>
+                                            {{ s.nbAbsence }}
+                                        </td>
+                                    <td>
+                                        <a href="{{ path('AjouterNote',{'id':s.apprenant.id}) }}">Note</a><br>
+                                        <a href="{{ path('Absence',{'id':id,'idu':s.apprenant.id}) }}">Abscence</a><br>
+                                        <a href="{{ path('AfficheNote',{'id':s.apprenant.id}) }}">Details</a><br>
+                                        <a href="{{ path('deleteAffecter',{'id':s.id}) }}">Supprimer</a><br>
+
+
+
+                                    </td>
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "@User/Page_Apprenant.html.twig" %}
+{% block titre  %}  Kids's Note {% endblock %}
+{% block body %}
+
+{% set nb = 0 %}
+{% set coe = 0 %}
+    {% set moye =0 %}
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                {% if absence == null %}
+                    {% else %}
+                <h4 class="card-title">Absence : {{ absence.nbAbsence }}</h4>
+                        {% endif %}
+                <h4 class="card-title">Emploi  : {% for e in emploi %}
+
+                    {% if e.classe == user.classe %}
+                    <a href="{{ asset('Upload/' ~ e.emploit) }}">{{ e.nEmploi }}</a></h4>
+                {% endif %}
+                {% endfor %}
+
+
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+
+                            <th>
+                                Matiére
+                            </th>
+                            <th>
+                                coefficient
+                            </th>
+                            <th>
+                                Note Orale
+                            </th>
+
+                            <th>
+                                Note Ecrit
+                            </th>
+                            <th>
+                                Moyenne
+                            </th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for s in note %}
+                            {% set nb = nb +(s.moyenne * s.matiere.coefficient) %}
+                            {% set coe = coe + s.matiere.coefficient %}
+                            <tr>
+                                <td>
+                                    {{ s.matiere.nomMatiere }}
+                                </td>
+                                <td>
+                                    {{ s.matiere.coefficient }}
+                                </td>
+                                <td>
+                                    {{ s.noteOrale }}
+                                </td>
+                                <td>
+                                    {{ s.noteEcrit }}
+
+                                </td>
+                                <td>
+                                    {{ s.moyenne }}
+
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                    Moyenne Génerale : {{ nb/coe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

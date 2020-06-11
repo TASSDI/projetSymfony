@@ -1,0 +1,98 @@
+
+{% extends "@User/Page_Apprenant.html.twig" %}
+
+{% block titre %} {{ event.titre}}{% endblock %}
+{% block body %}
+    <!-- steps -->
+    <div class='grid_row clearfix' style='padding-top: 50px;padding-bottom: 50px;'>
+        <div class='grid_col grid_col_6'>
+            <div class='ce clearfix'>
+                <div>
+                    <h3 class="ce_title" style=" text-align: center;"><span >{{ event.discription }}</span></h3>
+                    <ul class="checkmarks_style">
+                        <li>Lieu : {{ event.lieu }}</li>
+                        <li>Date de Début : {{ event.dated |date }} </li>
+                        <li>Date de Fin : {{ event.dateF | date}}</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class='grid_col grid_col_6'>
+            <div class='ce clearfix'>
+                <div>
+                    <p><img class="aligncenter size-full image-type noborder" src="{{ asset('Upload/')}}{{ event.image }}" alt="nanny" width="1100" height="550" /></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href='{{ path('like',{'id':event.id}) }}' >{{ like }} Like /</a>
+    <a href='{{ path('Deslike',{'id':event.id}) }}' >Deslike {{ deslike }}</a></p>
+
+
+
+    {% if reserv == null %}
+                    <p class="mb-0"><a href="{{ path('Participer_ajoutEvenement',{'id':event.id}) }}" class="cws_button">Participer <span class="ion-ios-arrow-round-forward"></span></a></p>
+                    {% else %}
+
+                    <p class="mb-0"><a href="{{ path('AnnulerReservation',{'id':event.id}) }}" class="cws_button">Annuler Participation <span class="ion-ios-arrow-round-forward"></span></a></p>
+
+                    <div class="pt-5 mt-5">
+
+                        <h3 class="mb-5 h4 font-weight-bold">Comments</h3>
+                        {% for c in comment %}
+
+                            <ul class="comment-list">
+                                <li class="comment">
+                                    <div class="vcard bio">
+                                    </div>
+                                    <div class="comment-body">
+                                        <h3><b>{{ c.getIdUser.getUsername }}</b></h3>
+                                        <p> {{ c.commentaire }}</p>
+                                        <p><a href="{{ path('Comment_edit',{'idc':c.id,'ide':event.id}) }}" class="cws_button mini">Modifier</a>/
+                                            <a href="{{ path('Comment_delete',{'idc':c.id,'ide':event.id})}}" class="cws_button mini">Supprimer</a></p>
+
+                                    </div>
+
+                                </li>
+
+
+                            </ul>
+                        {% endfor %}
+
+                        <!-- END comment-list -->
+
+                        <div class="comment-form-wrap pt-5">
+                            <h3 class="mb-5 h4 font-weight-bold">Leave a comment</h3>
+
+
+
+                            {{ form_start(form) }}
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                {{ form_widget(form.commentaire, { 'attr': {'class':'form-control'} }) }}                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Commenter" class="btn btn-success"/>
+                            </div>
+                            {{ form_end(form) }}
+
+{% endif %}
+                        </div>
+                    </div>
+                </div> <!-- .col-md-8 -->
+
+                <div class="col-lg-4 sidebar ftco-animate">
+                    <div class="sidebar-box">
+
+                    </div>
+
+
+
+
+                </div><!-- END COL -->
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

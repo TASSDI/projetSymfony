@@ -1,0 +1,58 @@
+{% extends "@User/Page_Employer.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Matiéres : {{ c }}</h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                id
+                            </th>
+                            <th>
+                                Matiére
+                            </th>
+                            <th>
+                                Coefficient
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for s in mat %}
+
+                            <tr>
+                                <td>
+                                    {{ s.id }}
+                                </td>
+                                <td>
+                                    {{ s.nomMatiere }}
+                                </td>
+                                <td>
+                                    {{ s.coefficient }}
+
+                                </td>
+                                <td>
+                                    <a href="{{ path('matier_delete',{'id':s.id}) }}">Supprimer</a><br>
+                                    <a href="{{ path('matier_modifier',{'id':s.id}) }}">Modifier</a><br>
+
+                                </td>
+
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

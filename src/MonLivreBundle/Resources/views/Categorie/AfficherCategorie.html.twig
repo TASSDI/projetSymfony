@@ -1,0 +1,54 @@
+{% extends "@User/Page_Employer.html.twig" %}
+{% block body %}
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Categories</h4>
+
+                <div class="table-responsive pt-3">
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr class="bg-primary change">
+                            <th>
+                                id
+                            </th>
+                            <th>
+                                Nom
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody id="amine">
+
+                        {% for c in cat %}
+                            <tr>
+                                <td>
+                                    {{ c.id }}
+                                </td>
+                                <td>
+                                    {{ c.nomCat }}
+                                </td>
+
+                                <td>
+                                <a class="btn btn-danger a-btn-slide-text" href="{{ path('categorie_delete',{'id':c.id}) }}">
+                                    <span class="fas fa-minus-circle" aria-hidden="true"></span>
+                                    <span><strong> Supprimer</strong></span></a>
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="navigation text-center" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

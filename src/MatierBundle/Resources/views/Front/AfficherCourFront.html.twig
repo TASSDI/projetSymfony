@@ -1,0 +1,32 @@
+{% extends "@User/Page_Apprenant.html.twig" %}
+{% block titre  %}  Mes Cours Nb_ {{ count }}<br><div class="navigation">
+    {{ knp_pagination_render(cour) }}
+</div> {% endblock %}
+{% block body %}
+    {% for c in cour %}
+        {% if c.classe == user.classe %}
+            <div class='benefits_area wave'>
+            <div class='cloud_wrapper'>
+                <canvas class='cloud' data-bg-color='#f9e8b2' data-line-color='#ffffff' data-pattern-src='{{ asset('Front/img/dots-pattern.png') }}'></canvas>
+            </div>
+<div class='container'>
+    <div class='benefits_container'>
+        <!-- benefits item -->
+        <div class="cws-widget">
+            <div class="widget-title">
+                <div class='widget_title_box'>
+                    <div class='widget_title_text_section'>{{ c.nom}}</div>
+                </div>
+            </div>
+            <div class='cws_textwidget_content'>
+                <div class='text'>{{ c.matiere.nomMatiere }}</div>
+                <div class='link'><a href='{{ asset('Upload/' ~ c.courPdf) }}' class='cws_button small'>See Cour</a></div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+            {% endif %}
+        {% endfor %}
+
+{% endblock %}

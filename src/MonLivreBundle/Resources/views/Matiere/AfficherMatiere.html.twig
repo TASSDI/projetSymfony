@@ -1,0 +1,70 @@
+{% extends "@User/Page_Employer.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Matiéres</h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                id
+                            </th>
+                            <th>
+                                Nom Matiere
+                            </th>
+                            <th>
+                                Nombre d'heure
+                            </th>
+
+                            <th>
+                                Categories
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for s in mat %}
+
+                            <tr>
+                                <td>
+                                    {{ s.id }}
+                                </td>
+                                <td>
+                                    {{ s.matiere }}
+                                </td>
+                                <td>
+                                    {{ s.nbheure }}
+
+                                </td>
+                                <td>
+                                    {{ s.Categorie.nomCat }}
+
+                                </td>
+                                <td>  <img src="{{ asset('Upload/')}}{{ s.nomfile }}" width="100"  /></td>
+
+                                <td>
+                                    <a href="{{ path('matierMonLivre_delete',{'id':s.id}) }}">Supprimer</a><br>
+                                    <a href="{{ path('matierMonLivre_modifier',{'id':s.id}) }}">Modifier</a><br>
+
+                                </td>
+
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

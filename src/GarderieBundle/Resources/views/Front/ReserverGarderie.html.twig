@@ -1,0 +1,67 @@
+{% extends "@User/Page_Parent.html.twig" %}
+
+{% block titre %} Reservez <br>
+    <div id="errorElement"></div>
+{% endblock %}
+
+{% block body %}
+
+
+    {{ form_start(form , {'attr': {'id': 'form'}}) }}
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description">
+                </p>
+                <div class="form-group">
+                    <label for="exampleInputName1">Date</label>
+                    {{ form_widget(form.dateGar,{'attr': {'id': 'date'}}) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Votre Enfant</label>
+                    {{ form_widget(form.nbenfants, { 'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Activite</label>
+                    {{ form_widget(form.activityType, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+                <input type="submit" value="Envoyer" class=" btn btn-primary mr-2"/>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+<script>
+
+
+    const form= document.getElementById('form');
+    const errorElement= document.getElementById('errorElement');
+    var now = new Date();
+    form.addEventListener('submit',(e)=> {
+        let message = [];
+        const year= document.getElementById('garderiebundle_reservation_dateGar_year').value;
+        const month= document.getElementById('garderiebundle_reservation_dateGar_month').value;
+        const day= document.getElementById('garderiebundle_reservation_dateGar_day').value;
+        var date = new Date(year,month-1,day);
+        console.log(date , ' ', now)
+        if(date < now){
+            alert('verifier votre date')
+          message.push('Vérifier Votre date')
+        }
+
+        if(message.length> 0){
+
+            e.preventDefault();
+            errorElement.innerText = message.join(', ')
+        }
+
+    })
+
+
+
+
+
+</script>
+
+{% endblock %}

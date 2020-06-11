@@ -1,0 +1,48 @@
+{% extends "@User/Page_Enseignant.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Emplois Enseignant</h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                id
+                            </th>
+
+                            <th>
+                                Nom Emploi
+                            </th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for s in empl %}
+                            {% if s.classe == null  %}
+
+                                <tr>
+                                    <td>
+                                        {{ s.id }}
+                                    </td>
+
+                                    <td><a href="{{ asset('Upload/' ~ s.emploit) }}">{{ s.nEmploi }}</a></td>
+
+
+
+
+                                </tr>
+                            {% else %}
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

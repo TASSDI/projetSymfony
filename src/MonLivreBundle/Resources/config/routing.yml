@@ -1,0 +1,68 @@
+mon_livre_homepage:
+    path:     /
+    defaults: { _controller: MonLivreBundle:Default:index }
+
+categorie_Ajout:
+    path:     /admin/ajoutCategorie
+    defaults: { _controller: MonLivreBundle:Categorie:AjoutCategorie }
+
+categorie_Affiche:
+    path:     /admin/afficheCategorie
+    defaults: { _controller: MonLivreBundle:Categorie:AfficheCategorie }
+
+categorie_delete:
+    path:     /admin/deleteCategorie/{id}
+    defaults: { _controller: MonLivreBundle:Categorie:deleteCategorie }
+
+Ajouter_MatierLivre:
+    path:     /admin/Ajouter/MatierLivre
+    defaults: { _controller: MonLivreBundle:Matiere:AjoutMatiere }
+
+Affichier_MatierLivre:
+    path:     /admin/Affichier/MatierLivre
+    defaults: { _controller: MonLivreBundle:Matiere:AfficheMatiere }
+
+matierMonLivre_delete:
+    path:     /admin/deleteMatiereMonLivre/{id}
+    defaults: { _controller: MonLivreBundle:Matiere:deleteMatiere }
+
+matierMonLivre_modifier:
+    path:     /admin/ModifeirMatiereMonLivre/{id}
+    defaults: { _controller: MonLivreBundle:Matiere:ModifierMatier }
+
+CourMonLivre_Ajouter:
+    path:     /admin/AjouterMonLivre
+    defaults: { _controller: MonLivreBundle:MonLivre:AjoutMCourLivre }
+
+CourMonLivre_Affichier:
+    path:     /admin/AffichierCourMonLivre
+    defaults: { _controller: MonLivreBundle:MonLivre:AfficheMonLivre }
+
+CourMonLivre_delete:
+    path:     /admin/DeleteCourMonLivre/{id}
+    defaults: { _controller: MonLivreBundle:MonLivre:deleteMonLivre }
+
+CourMonLivre_Modifier:
+    path:     /admin/ModifierCourMonLivre/{id}
+    defaults: { _controller: MonLivreBundle:MonLivre:ModifierCour }
+
+Front_AfficheMonCour:
+    path:     /Apprenant/CourMonLivre
+    defaults: { _controller: MonLivreBundle:Matiere:AfficheMatiereFront }
+
+
+Front_AfficheMonCourDetails:
+    path:     /Apprenant/CourMonLivreDetails/{id}
+    defaults: { _controller: MonLivreBundle:Matiere:AfficheMatiereFrontDétails }
+
+PaticiperCour:
+    path:     /Apprenant/Inscrire/{id}
+    defaults: { _controller: MonLivreBundle:Inscription:AjoutInscription }
+
+DésinscriptionCour:
+    path:     /Apprenant/DesInscrire/{id}
+    defaults: { _controller: MonLivreBundle:Inscription:deleteParticipationClient }
+
+rate_:
+    path:     /rate
+    defaults: { _controller: MonLivreBundle:Vote:rate }

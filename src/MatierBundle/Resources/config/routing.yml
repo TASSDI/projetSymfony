@@ -1,0 +1,101 @@
+matier_homepage:
+    path:     /
+    defaults: { _controller: MatierBundle:Default:index }
+
+matier_ajout:
+    path:     /admin/AjouterMatiere
+    defaults: { _controller: MatierBundle:Matiere:AjouterMatiere }
+
+matier_afficher:
+    path:     /admin/AfficierMatiere
+    defaults: { _controller: MatierBundle:Matiere:AfficheMatiere }
+
+matier_delete:
+    path:     /admin/deleteMatiere/{id}
+    defaults: { _controller: MatierBundle:Matiere:deleteMatiere }
+
+matier_modifier:
+    path:     /admin/ModifeirMatiere/{id}
+    defaults: { _controller: MatierBundle:Matiere:ModifierMatier }
+
+AfficherEnseignant:
+    path:     /admin/AfficheEnseignants
+    defaults: { _controller: MatierBundle:Emploi:AfficheEnseignant }
+
+Emploi_Enseignant:
+    path:     /admin/AjouterEmploiEnseignat/{id}
+    defaults: { _controller: MatierBundle:Emploi:AjouterEmploiEnseignant }
+
+Emploi_Classe:
+    path:     /admin/AjouterEmploiClass/{id}
+    defaults: { _controller: MatierBundle:Emploi:AjouterEmploiClass }
+
+Emploi_EnseignantAffiche:
+    path:     /admin/AfficheEmploiEnseignant
+    defaults: { _controller: MatierBundle:Emploi:AfficheEmploiEnseignant }
+
+
+Emploi_EnseignantAfficheback:
+    path:     /Enseignant/AfficheEmploiEnseignant
+    defaults: { _controller: MatierBundle:Emploi:AfficheEmploiEnseignantback }
+
+Emploi_Enseigant_delete:
+    path:     /admin/deleteEmploiEnseignant/{id}
+    defaults: { _controller: MatierBundle:Emploi:deleteEmploiEnseignant }
+
+Emploi_ClasseAffiche:
+    path:     /admin/AfficheClasseEnseignant
+    defaults: { _controller: MatierBundle:Emploi:AfficheEmploiClass }
+
+Emploi_Class_delete:
+    path:     /admin/deleteEmploiClass/{id}
+    defaults: { _controller: MatierBundle:Emploi:deleteEmploiClass }
+
+Affichier_ClassEnseignant:
+    path:     /Enseignant/AffichierClass
+    defaults: { _controller: MatierBundle:Cour:AfficheClasse }
+
+
+Ajouter_Cour:
+    path:     /Enseignant/AjouterCour/{id}
+    defaults: { _controller: MatierBundle:Cour:AjouterCour }
+
+
+Affichier_Cour:
+    path:     /Enseignant/AffichierCour
+    defaults: { _controller: MatierBundle:Cour:AfficheCour }
+
+
+delete_Cour:
+    path:     /Enseignant/deleteCour/{id}
+    defaults: { _controller: MatierBundle:Cour:deleteCour }
+
+
+Modifier_Cour:
+    path:     /Enseignant/ModifierCour/{id}
+    defaults: { _controller: MatierBundle:Cour:ModifierCour }
+
+See_Cour:
+    path:     /Apprenant/MyCour
+    defaults: { _controller: MatierBundle:Cour:AfficheCourFront }
+
+
+AllUser_affiche:
+    path:     /admine/AfficierAllUser
+    defaults: { _controller: MatierBundle:User:AfficheAllUser }
+
+
+bloquer:
+    path:     /admine/bloqueUser/{id}
+    defaults: { _controller: MatierBundle:User:BloqueUser }
+
+debloquer:
+    path:     /admine/debloqueUser/{id}
+    defaults: { _controller: MatierBundle:User:DebloquerUser }
+
+
+
+call:
+    path:     /admine/call
+    defaults: { _controller: MatierBundle:User:call }
+
